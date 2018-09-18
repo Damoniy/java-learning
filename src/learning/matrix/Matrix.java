@@ -1,8 +1,8 @@
-package com.comerpg;
+package learning.matrix;
 
 import java.util.Scanner;
 
-public class Main {
+public class Matrix {
 
 	private static Scanner scan = new Scanner(System.in);
 	
