@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class WorkMain {
 	
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		
 		Locale.setDefault(Locale.US);
@@ -28,10 +29,7 @@ public class WorkMain {
 		
 		System.out.print("Base salary: ");
 		double baseSalary = scan.nextDouble();
-		
-		EnumLevel level = EnumLevel.valueOf(type);
-		
-		Worker worker = new Worker(department, name, level, baseSalary);
+		Worker worker = new Worker(department, name, EnumLevel.valueOf(type), baseSalary);
 		
 		System.out.println("How many contracts to this worker? ");
 		int number = scan.nextInt();
