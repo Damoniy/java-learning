@@ -65,7 +65,7 @@ public class Order {
 		for(int i = 0; i < order.size(); i++) {
 						
 			builder.append(
-			String.format("Order items:%n%s, %.2f, %d, Subtotal: %.2f%n", 
+			String.format("Order items:%n%s, $%.2f, Quantity: %d, Subtotal: %.2f%n", 
 					order.get(i).getName(), order.get(i).getPrice(), order.get(i).getQuantity(), order.get(i).subTotal()));
 		
 			totalValue += order.get(i).subTotal();
