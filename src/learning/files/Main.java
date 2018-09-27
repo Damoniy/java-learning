@@ -1,27 +1,41 @@
 package learning.files;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		File file = new File("c:\\temp\\in.txt");
-		Scanner scan = null;
+		String path = "c:\\temp\\in.txt";
+		FileReader reader = null;
+		BufferedReader bf = null;
+		
 		try {
-			scan = new Scanner(file);
-			while(scan.hasNextLine()) {
-				System.out.println(scan.nextLine());
+			reader = new FileReader(path);
+			bf = new BufferedReader(reader);
+			
+			String line = bf.readLine();
+			
+			while(line != null) {
+				System.out.println(line);
+				line = bf.readLine();
 			}
-		} 	catch (IOException e) {
-				System.out.println("Error:" + e.getMessage());
+			
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
 		} finally {
-			if(scan != null) {
-				scan.close();
+			try {
+				if(reader != null) {
+					reader.close();
+				}
+				if(bf != null) {
+					bf.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 	}
-
 }
