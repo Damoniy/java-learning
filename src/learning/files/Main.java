@@ -9,33 +9,18 @@ public class Main {
 	public static void main(String[] args) {
 
 		String path = "c:\\temp\\in.txt";
-		FileReader reader = null;
-		BufferedReader bf = null;
 		
-		try {
-			reader = new FileReader(path);
-			bf = new BufferedReader(reader);
-			
-			String line = bf.readLine();
+		try(BufferedReader br = new BufferedReader(new FileReader(path))) {
+
+			String line = br.readLine();
 			
 			while(line != null) {
 				System.out.println(line);
-				line = bf.readLine();
+				line = br.readLine();
 			}
 			
 		} catch(IOException e) {
 			System.out.println("Error: " + e.getMessage());
-		} finally {
-			try {
-				if(reader != null) {
-					reader.close();
-				}
-				if(bf != null) {
-					bf.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 }
